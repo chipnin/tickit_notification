@@ -22,7 +22,8 @@
         "lcobucci/jwt": "^3.2",
         "vlucas/phpdotenv": "^2.4",
         "tightenco/collect": "^5.5",
-        "guzzlehttp/guzzle": "^6.3"
+        "guzzlehttp/guzzle": "^6.3",
+        "yiisoft/yii2-queue": "^2.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

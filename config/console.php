@@ -5,7 +5,7 @@ $params = require __DIR__ . '/params.php';
 $config = [
     'id' => 'tickit_user',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => ['log', 'queue'],
     'controllerNamespace' => 'app\commands',
     'components' => [
         'cache' => [
@@ -18,6 +18,10 @@ $config = [
                     'levels' => ['error', 'warning'],
                 ],
             ],
+        ],
+        'queue' => [
+            'class' => \yii\queue\file\Queue::class,
+            'path' => '@runtime/queue',
         ],
     ],
     'params' => $params,

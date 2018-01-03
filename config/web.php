@@ -8,7 +8,7 @@ $providers = require __DIR__ . '/providers.php';
 $config = [
     'id' => 'tickit_notification',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => array_merge(['log'], $providers),
+    'bootstrap' => array_merge(['log', 'queue'], $providers),
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
@@ -46,6 +46,10 @@ $config = [
                     'levels' => ['error', 'warning'],
                 ],
             ],
+        ],
+        'queue' => [
+            'class' => \yii\queue\file\Queue::class,
+            'path' => '@runtime/queue',
         ],
         'urlManager' => [
             'enablePrettyUrl' => true,
