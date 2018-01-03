@@ -6,7 +6,7 @@ $params = require __DIR__ . '/params.php';
 $providers = require __DIR__ . '/providers.php';
 
 $config = [
-    'id' => 'tickit_project',
+    'id' => 'tickit_notification',
     'basePath' => dirname(__DIR__),
     'bootstrap' => array_merge(['log'], $providers),
     'aliases' => [
