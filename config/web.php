@@ -3,7 +3,6 @@
 use app\entities\models\User;
 
 $params = require __DIR__ . '/params.php';
-$db = require __DIR__ . '/db.php';
 $providers = require __DIR__ . '/providers.php';
 
 $config = [
@@ -48,18 +47,9 @@ $config = [
                 ],
             ],
         ],
-        'db' => $db,
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => [
-                'GET projects' => 'project/index',
-                'GET users/<userId:\d+>/projects' => 'project/by-user',
-                'POST users/<userId:\d+>/join/<projectId:\d+>' => 'project/join',
-                'GET projects/<projectId:\d+>/users' => 'project/users',
-                'GET projects/<projectId:\d+>/ticks/<year:\d+>/<month:\d+>' => 'project/ticks',
-                'GET forget-ticking' => 'tick/forget-ticking',
-            ],
         ],
     ],
     'params' => $params,
