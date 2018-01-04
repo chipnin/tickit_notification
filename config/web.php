@@ -42,8 +42,15 @@ $config = [
                 'host' => 'smtp.gmail.com',
                 'username' => 'tickit.mailer@gmail.com',
                 'password' => '123456##',
-                'port' => '587',
-                'encryption' => 'tls',
+                'port' => '465',
+                'encryption' => 'ssl',
+                'streamOptions' => [
+                    'ssl' => [
+                        'allow_self_signed' => true,
+                        'verify_peer' => false,
+                        'verify_peer_name' => false,
+                    ],
+                ],
             ],
         ],
         'log' => [
