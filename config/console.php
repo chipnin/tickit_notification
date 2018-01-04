@@ -3,13 +3,29 @@
 $params = require __DIR__ . '/params.php';
 
 $config = [
-    'id' => 'tickit_user',
+    'id' => 'tickit_notification',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log', 'queue'],
     'controllerNamespace' => 'app\commands',
     'components' => [
         'cache' => [
             'class' => 'yii\caching\FileCache',
+        ],
+        'mailer' => [
+            'class' => 'yii\swiftmailer\Mailer',
+            // send all mails to a file by default. You have to set
+            // 'useFileTransport' to false and configure a transport
+            // for the mailer to send real emails.
+            'useFileTransport' => false,
+            // 'fileTransportPath' => '@runtime/mail',
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.gmail.com',
+                'username' => 'tickit.mailer@gmail.com',
+                'password' => '123456##',
+                'port' => '587',
+                'encryption' => 'tls',
+            ],
         ],
         'log' => [
             'targets' => [
